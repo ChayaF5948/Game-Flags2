@@ -38,44 +38,32 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void Update()
-    {
-        if(myGroup == Groups.Groupe1)
-        {
-                v1Input = Input.GetAxis(VERTICAL1_AXIS) * moveSpeed;
-                h1Input = Input.GetAxis(HORIZONTAL1_AXIS) * rotateSpeed;
-                
-                //transform.Translate(Vector3.forward * v1Input * Time.deltaTime);
-                //transform.Rotate(Vector3.up * h1Input * Time.deltaTime);
-            
-        
-        }
-        else if(myGroup == Groups.Groupe2)
-        {
-             v2Input = Input.GetAxis(VERTICAL2_AXIS) * moveSpeed;
-             h2Input = Input.GetAxis(HORIZONTAL2_AXIS) * rotateSpeed;
 
-            //transform.Translate(Vector3.forward * v2Input * Time.deltaTime);
-            //transform.Rotate(Vector3.up * h2Input * Time.deltaTime);
-        }
-    }
     private void FixedUpdate()
     {
-
         if (myGroup == Groups.Groupe1)
         {
-            Vector3 rotation1 = Vector3.up * h1Input;
-            Quaternion angelRot1 = Quaternion.Euler(rotation1 * Time.fixedDeltaTime);
+            v1Input = Input.GetAxis(VERTICAL1_AXIS) * moveSpeed;
+            h1Input = Input.GetAxis(HORIZONTAL1_AXIS) * rotateSpeed;
+
+            Vector3 rotation = Vector3.up * h1Input;
+            Quaternion angleRot = Quaternion.Euler(rotation * Time.fixedDeltaTime);
+
             rb.MovePosition(transform.position + transform.forward * v1Input);
-            rb.MoveRotation(rb.rotation * angelRot1);
+            rb.MoveRotation(rb.rotation * angleRot);
+
         }
         else if (myGroup == Groups.Groupe2)
         {
-            Vector3 rotation2 = Vector3.up * h2Input;
-            Quaternion angelRot2 = Quaternion.Euler(rotation2 * Time.fixedDeltaTime);
+            v2Input = Input.GetAxis(VERTICAL2_AXIS) * moveSpeed;
+            h2Input = Input.GetAxis(HORIZONTAL2_AXIS) * rotateSpeed;
+
+            Vector3 rotation = Vector3.up * h2Input;
+            Quaternion angleRot = Quaternion.Euler(rotation * Time.fixedDeltaTime);
+
             rb.MovePosition(transform.position + transform.forward * v2Input);
-            rb.MoveRotation(rb.rotation * angelRot2);
+            rb.MoveRotation(rb.rotation * angleRot);
+
         }
-        
-    }    
+    }
 }
