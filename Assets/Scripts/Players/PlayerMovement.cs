@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
- [RequireComponent(typeof(Rigidbody))]
-
+ 
+ public enum Groups 
+    { 
+        Groupe1,
+        Groupe2
+    }
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 10f;
@@ -22,11 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private float h2Input;
 
     
-    public enum Groups 
-    { 
-        Groupe1,
-        Groupe2
-    }
+   
 
     [SerializeField] private Groups myGroup;
 
