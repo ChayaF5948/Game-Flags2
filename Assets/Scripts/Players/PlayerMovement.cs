@@ -25,10 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private float v2Input;
     private float h2Input;
 
-    
-   
-
-    [SerializeField] private Groups myGroup;
+    public Groups myGroup;
 
     private Rigidbody rb;
 
