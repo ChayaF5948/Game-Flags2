@@ -5,18 +5,18 @@ public class GameManager : MonoBehaviour
 {
     public UnityAction OnFlagConquered;
 
-    private bool isConquered = false;
+    private bool isConqueredGro1 = false;
     public bool IsConquered
     {
-        get { return isConquered; }
+        get { return isConqueredGro1; }
         set
         {
-            isConquered = value;
+            isConqueredGro1 = value;
             Debug.Log("The flag catch");
-            if (isConquered)
+            if (isConqueredGro1)
             {
                 OnFlagConquered?.Invoke();
-                isConquered = false;
+                isConqueredGro1 = false;
             }
         }
     }
