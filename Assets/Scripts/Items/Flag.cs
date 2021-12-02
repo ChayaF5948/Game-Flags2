@@ -30,9 +30,8 @@ public class Flag : MonoBehaviour
             else if (groupes == Groups.Groupe2&&myFlag == Groups.Groupe1)
             {
                 Debug.Log("Player 2 collided with the flag ");
-                //gameManager.IsConquered = true;
+                gameManager.IsConqueredGro2 = true;
             }
-
         }
     }
 }
