@@ -18,10 +18,10 @@ public class SwitchPlayers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player1Movement = GameObject.Find("Player1").GetComponent<PlayerMovement>();
-        Player2Movement = GameObject.Find("Player2").GetComponent<PlayerMovement>();
-        Player3Movement = GameObject.Find("Player3").GetComponent<PlayerMovement>();
-        Player4Movement = GameObject.Find("Player4").GetComponent<PlayerMovement>();
+        Player1Movement = GameObject.Find("Player_1").GetComponent<PlayerMovement>();
+        Player2Movement = GameObject.Find("Player_2").GetComponent<PlayerMovement>();
+        Player3Movement = GameObject.Find("Player_3").GetComponent<PlayerMovement>();
+        Player4Movement = GameObject.Find("Player_4").GetComponent<PlayerMovement>();
 
         Player1Movement.enabled = true;
         Player2Movement.enabled = false;

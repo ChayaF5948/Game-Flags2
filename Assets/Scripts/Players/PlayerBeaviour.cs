@@ -4,26 +4,72 @@ using UnityEngine;
 
 public class PlayerBeaviour : MonoBehaviour
 {
-    public bool isMyGround;
+    [SerializeField] private bool isMyGround;
+
+    private PlayerMovement PlayerMovement;
+
+    public Groups myGroup;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("AreaGroupe1"))
+        if(myGroup == Groups.Groupe2)
         {
-            isMyGround = true;
+            
+
+            if (collision.collider.gameObject.layer == LayerMask.NameToLayer("AreaGroupe2"))
+            {
+                isMyGround = true;
+
+                this.GetComponent<BoxCollider>().isTrigger = false;
+            }
+
+            else if (collision.collider.gameObject.layer == LayerMask.NameToLayer("AreaGroupe1"))
+            {
+                isMyGround = false;
+
+                this.GetComponent<BoxCollider>().isTrigger = true;
+            }
         }
 
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("AreaGroupe2"))
+        else if (myGroup == Groups.Groupe1)
         {
-            isMyGround = false;
+            
+
+            if (collision.collider.gameObject.layer == LayerMask.NameToLayer("AreaGroupe2"))
+            {
+                isMyGround = false;
+
+                this.GetComponent<BoxCollider>().isTrigger = true;
+            }
+
+            else if (collision.collider.gameObject.layer == LayerMask.NameToLayer("AreaGroupe1"))
+            {
+                isMyGround = true;
+                this.GetComponent<BoxCollider>().isTrigger = false;
+
+            }
         }
+
+
 
     }
-    private void OnTiggerEnter(Collider other)
-    {
-        if (isMyGround && other.gameObject.CompareTag("Group2"))
-        {
-           
-        }
+    private void OnTriggerEnter(Collider other)
+    {  
+           if (myGroup == Groups.Groupe1 && isMyGround && other.gameObject.CompareTag("Group2"))
+           {
+               Debug.Log("I catched you!");
+               PlayerMovement = other.gameObject.GetComponent<PlayerMovement>();
+               PlayerMovement.enabled = false;
+           }
+       
+           else if (myGroup == Groups.Groupe2 && isMyGround && other.gameObject.CompareTag("Group1"))
+           {
+               Debug.Log("I catched you!");
+               PlayerMovement = other.gameObject.GetComponent<PlayerMovement>();
+               PlayerMovement.enabled = false;
+           }
+       
+
+        
     }
 }
