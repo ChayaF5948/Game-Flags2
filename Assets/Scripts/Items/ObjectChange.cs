@@ -4,12 +4,16 @@ public class ObjectChange : MonoBehaviour
 {
     [SerializeField]
     private GameManager gameManager;
+    [SerializeField]
+    private GameObject[] flags;
     private void Start()
     {
-        gameManager.OnFlagConquered += ChangeField;
+        gameManager.OnFlagConquered += ChangeFieldAndFlag;
     }
-    private void ChangeField()
+    private void ChangeFieldAndFlag()
     {
+
         Debug.Log("The field change");
+
     }
 }
