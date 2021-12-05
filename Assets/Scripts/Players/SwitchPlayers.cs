@@ -11,6 +11,10 @@ public enum PlayerNumber
 }
 public class SwitchPlayers : MonoBehaviour
 {
+    private PlayerMovement PlayerMovement;
+
+    [SerializeField] PlayerNumber PlayerNumber;
+
     // Start is called before the first frame update
     void Start()
     {
