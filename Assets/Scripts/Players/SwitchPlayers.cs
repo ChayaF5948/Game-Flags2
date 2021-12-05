@@ -18,12 +18,20 @@ public class SwitchPlayers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayerMovement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+
+            if (PlayerNumber != PlayerNumber.Player1)
+            {
+               
+            }
+
+        }
     }
 }
