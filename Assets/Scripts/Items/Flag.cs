@@ -31,37 +31,32 @@ public class Flag : MonoBehaviour
             Groups groupes = playerMovement.myGroup;
             if (groupes == Groups.Groupe1 && myFlag == Groups.Groupe2)
             {
-                //Debug.Log("Player 1 collided with the flag ");
-                gameManager.IsConqueredGro1 = true;
+                //Debug.Log("Player 1 collided with the flag ");    
                 gameObject.SetActive(false);
-                flag.SetActive(true);
-                transform.parent.gameObject.layer = 6;
-                transform.parent.GetComponent<Renderer>().material = area[0];
+                Player1Conquered();
             }
             else if (groupes == Groups.Groupe2 && myFlag == Groups.Groupe1)
             {
-                
                 //Debug.Log("Player 2 collided with the flag ");
-                gameManager.IsConqueredGro2 = true;
                 gameObject.SetActive(false);
-                flag.SetActive(true);
-                transform.parent.gameObject.layer = 7;
-                transform.parent.GetComponent<Renderer>().material = area[1];
+                Player2Conquered();
             }
         }
+       
     }
-    //private void ChangeLayer()
-    //{
-    //    //LayerMask areas = transform.parent.GetComponent<LayerMask>();
-        //if(areas == LayerMask.NameToLayer("AraeGroup1"))
-        //{
-        //    transform.parent.gameObject.layer = 7;
-        //    transform.parent.GetComponent<Renderer>().material = area[1];
-        //}
-        //else if (areas == LayerMask.NameToLayer("AraeGroup2"))
-        //{
-        //    transform.parent.gameObject.layer = 6;
-        //    transform.parent.GetComponent<Renderer>().material = area[1];
-        //}
-    //}
+    private void Player1Conquered()
+    {
+        gameManager.IsConqueredGro1 = true;
+        flag.SetActive(true);
+        transform.parent.gameObject.layer = 6;
+        transform.parent.GetComponent<Renderer>().material = area[0];
+    }
+    private void Player2Conquered()
+    {
+        gameManager.IsConqueredGro2 = true;
+        flag.SetActive(true);
+        transform.parent.gameObject.layer = 7;
+        transform.parent.GetComponent<Renderer>().material = area[1];
+    }
+    
 }
