@@ -3,11 +3,17 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    public UnityAction OnFlagConquered;
+    public UnityAction<int, int> OnFlagConqueredGro1;
+    public UnityAction<int, int> OnFlagConqueredGro2;
+
+
+    private int flagGro1 = 4;
+    private int flagGro2 = 4;
 
     private bool isConqueredGro1 = false;
     public bool IsConqueredGro1
     {
+
         get { return isConqueredGro1; }
         set
         {
@@ -15,7 +21,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("The flag Caught Group1");
             if (isConqueredGro1)
             {
-                OnFlagConquered?.Invoke();
+                OnFlagConqueredGro1?.Invoke(flagGro1,flagGro2);
                 isConqueredGro1 = false;
             }
         }
@@ -30,12 +36,21 @@ public class GameManager : MonoBehaviour
             Debug.Log("The flag Caught Group2");
             if (isConqueredGro2)
             {
-                OnFlagConquered?.Invoke();
+                OnFlagConqueredGro2?.Invoke(flagGro2,flagGro1);
                 isConqueredGro2 = false;
             }
         }
     }
-
+    public int FlagGro1
+    {
+        get { return flagGro1;}
+        set { flagGro1 = value; }
+    }
+    public int FlagGro2
+    {
+        get { return flagGro2; }
+        set { flagGro2 = value; }
+    }
 
     // Start is called before the first frame update
     void Start()
