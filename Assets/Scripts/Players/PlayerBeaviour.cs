@@ -10,6 +10,10 @@ public class PlayerBeaviour : MonoBehaviour
 
     public Groups myGroup;
 
+    private void Start()
+    {
+        
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if(myGroup == Groups.Groupe2)
@@ -54,22 +58,30 @@ public class PlayerBeaviour : MonoBehaviour
 
     }
     private void OnTriggerEnter(Collider other)
-    {  
-           if (myGroup == Groups.Groupe1 && isMyGround && other.gameObject.CompareTag("Group2"))
-           {
+    {
+        PlayerMovement playerMovement = other.gameObject.GetComponentInChildren<PlayerMovement>();
+        Groups groupe = playerMovement.myGroup;
+        if (myGroup == Groups.Groupe1 && isMyGround && groupe == Groups.Groupe2)
+        {
                Debug.Log("I catched you!");
                PlayerMovement = other.gameObject.GetComponent<PlayerMovement>();
                PlayerMovement.enabled = false;
-           }
-       
-           else if (myGroup == Groups.Groupe2 && isMyGround && other.gameObject.CompareTag("Group1"))
-           {
-               Debug.Log("I catched you!");
-               PlayerMovement = other.gameObject.GetComponent<PlayerMovement>();
-               PlayerMovement.enabled = false;
-           }
-       
 
-        
+            SwitchPlayers switchPlayers = other.gameObject.GetComponent<SwitchPlayers>();
+            switchPlayers.Icaught = true;
+        }
+       
+        else if (myGroup == Groups.Groupe2 && isMyGround && groupe == Groups.Groupe1)
+        {
+               Debug.Log("I catched you!");
+               PlayerMovement = other.gameObject.GetComponent<PlayerMovement>();
+            PlayerMovement.enabled = false;
+
+            SwitchPlayers switchPlayers = other.gameObject.GetComponent<SwitchPlayers>();
+            switchPlayers.Icaught = true;
+        }
+
+
+
     }
 }
