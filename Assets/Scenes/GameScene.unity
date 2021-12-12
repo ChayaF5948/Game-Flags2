@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 7564197}
   - component: {fileID: 7564196}
   - component: {fileID: 7564203}
+  - component: {fileID: 7564204}
   m_Layer: 0
   m_Name: Player_3
   m_TagString: Player
@@ -283,6 +284,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMyGround: 0
   myGroup: 1
+--- !u!65 &7564204
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7564195}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9320320 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 541653538392582327, guid: 3c97091dad88c4c458a01df634cb314b, type: 3}
@@ -2016,8 +2030,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf52015c1b9da6a45aeba60c8088aa76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.15
-  rotateSpeed: 100
+  moveSpeed: 0.3
+  rotateSpeed: 150
   myGroup: 1
 --- !u!136 &1319888395
 CapsuleCollider:
@@ -2872,6 +2886,7 @@ GameObject:
   - component: {fileID: 1792210644}
   - component: {fileID: 1792210643}
   - component: {fileID: 1792210650}
+  - component: {fileID: 1792210651}
   m_Layer: 0
   m_Name: Player_2
   m_TagString: Player
@@ -3016,6 +3031,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMyGround: 0
   myGroup: 1
+--- !u!65 &1792210651
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792210642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1815677911
 GameObject:
   m_ObjectHideFlags: 0
@@ -3254,6 +3282,7 @@ GameObject:
   - component: {fileID: 2055345201}
   - component: {fileID: 2055345200}
   - component: {fileID: 2055345207}
+  - component: {fileID: 2055345208}
   m_Layer: 0
   m_Name: Player_4
   m_TagString: Player
@@ -3398,6 +3427,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMyGround: 0
   myGroup: 1
+--- !u!65 &2055345208
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055345199}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2064276642
 PrefabInstance:
   m_ObjectHideFlags: 0
