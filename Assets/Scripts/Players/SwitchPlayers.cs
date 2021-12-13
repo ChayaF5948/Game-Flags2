@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class SwitchPlayers : MonoBehaviour
 {
-
-
-
-<<<<<<< Updated upstream
     [SerializeField]
     private PlayerNumber playerNumber;
     private PlayerMovement playerMovement;
@@ -23,8 +19,8 @@ public class SwitchPlayers : MonoBehaviour
         set { iCaught = value; }
     }
 
-=======
->>>>>>> Stashed changes
+
+
     // Start is called before the first frame update
     void Start()
     {

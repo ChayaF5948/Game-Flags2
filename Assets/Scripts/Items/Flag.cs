@@ -30,33 +30,50 @@ public class Flag : MonoBehaviour
             PlayerMovement playerMovement = other.gameObject.GetComponentInChildren<PlayerMovement>();
             Groups groupes = playerMovement.myGroup;
             if (groupes == Groups.Groupe1 && myFlag == Groups.Groupe2)
-            {
-                //Debug.Log("Player 1 collided with the flag ");    
-                gameObject.SetActive(false);
-                Player1Conquered();
+            {   
+                gameManager.IsConquered = true;
+                ChangeFlag();
+                ChangeArea();
+                
             }
             else if (groupes == Groups.Groupe2 && myFlag == Groups.Groupe1)
             {
-                //Debug.Log("Player 2 collided with the flag ");
-                gameObject.SetActive(false);
-                Player2Conquered();
+                gameManager.IsConquered = true;
+                ChangeFlag();
+                ChangeArea();
             }
         }
        
     }
-    private void Player1Conquered()
-    {
-        gameManager.IsConqueredGro1 = true;
-        flag.SetActive(true);
-        transform.parent.gameObject.layer = 6;
-        transform.parent.GetComponent<Renderer>().material = area[0];
-    }
-    private void Player2Conquered()
-    {
-        gameManager.IsConqueredGro2 = true;
-        flag.SetActive(true);
-        transform.parent.gameObject.layer = 7;
-        transform.parent.GetComponent<Renderer>().material = area[1];
-    }
     
+
+    private void ChangeFlag()
+    {
+        gameObject.SetActive(false);
+        flag.SetActive(true);
+        if(myFlag == Groups.Groupe2)
+        {
+            gameManager.FlagGro1Num++;
+            gameManager.FlagGro2Num--;
+        }
+        else if(myFlag == Groups.Groupe1)
+        {
+            gameManager.FlagGro1Num--;
+            gameManager.FlagGro2Num++;
+        }
+    }
+
+    private void ChangeArea()
+    {
+        if(myFlag == Groups.Groupe2)
+        {
+            transform.parent.gameObject.layer = 6;
+            transform.parent.GetComponent<Renderer>().material = area[0];
+        }
+        else if(myFlag == Groups.Groupe1)
+        {
+            transform.parent.gameObject.layer = 7;
+            transform.parent.GetComponent<Renderer>().material = area[1];
+        }
+    }
 }
