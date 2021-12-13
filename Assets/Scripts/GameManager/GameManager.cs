@@ -3,53 +3,40 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    public UnityAction<int, int> OnFlagConqueredGro1;
-    public UnityAction<int, int> OnFlagConqueredGro2;
+    public UnityAction<int, int> OnFlagConquered;
+   
 
 
-    private int flagGro1 = 4;
-    private int flagGro2 = 4;
+    private int flagGro1num = 4;
+    private int flagGro2num = 4;
 
-    private bool isConqueredGro1 = false;
-    public bool IsConqueredGro1
+    private bool isConquered = false;
+    public bool IsConquered
     {
 
-        get { return isConqueredGro1; }
+        get { return isConquered; }
         set
         {
-            isConqueredGro1 = value;
+            isConquered = value;
             Debug.Log("The flag Caught Group1");
-            if (isConqueredGro1)
+            if (isConquered)
             {
-                OnFlagConqueredGro1?.Invoke(flagGro1,flagGro2);
-                isConqueredGro1 = false;
+                OnFlagConquered?.Invoke(flagGro1num,flagGro2num);
+                isConquered = false;
             }
         }
     }
-    private bool isConqueredGro2 = false;
-    public bool IsConqueredGro2
+    
+   
+    public int FlagGro1Num
     {
-        get { return isConqueredGro2; }
-        set
-        {
-            isConqueredGro2 = value;
-            Debug.Log("The flag Caught Group2");
-            if (isConqueredGro2)
-            {
-                OnFlagConqueredGro2?.Invoke(flagGro2,flagGro1);
-                isConqueredGro2 = false;
-            }
-        }
+        get { return flagGro1num;}
+        set { flagGro1num = value; }
     }
-    public int FlagGro1
+    public int FlagGro2Num
     {
-        get { return flagGro1;}
-        set { flagGro1 = value; }
-    }
-    public int FlagGro2
-    {
-        get { return flagGro2; }
-        set { flagGro2 = value; }
+        get { return flagGro2num; }
+        set { flagGro2num = value; }
     }
 
     // Start is called before the first frame update
