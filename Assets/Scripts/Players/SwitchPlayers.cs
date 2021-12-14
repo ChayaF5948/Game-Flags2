@@ -7,8 +7,9 @@ public class SwitchPlayers : MonoBehaviour
 {
     [SerializeField]
     private PlayerNumber playerNumber;
-    private PlayerMovement playerMovement;
 
+    
+    private PlayerMovement playerMovement;
 
     [SerializeField]
     private bool iCaught = false;
@@ -24,8 +25,10 @@ public class SwitchPlayers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
         playerMovement = GetComponent<PlayerMovement>();
+
+
         if (playerNumber == PlayerNumber.Player1)
         {
             playerMovement.enabled = true;
@@ -44,7 +47,7 @@ public class SwitchPlayers : MonoBehaviour
         }
 
 
-       
+
     }
 
     // Update is called once per frame

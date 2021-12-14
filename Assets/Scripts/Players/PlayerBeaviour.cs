@@ -6,7 +6,8 @@ public class PlayerBeaviour : MonoBehaviour
 {
     [SerializeField] private bool isMyGround;
 
-    private PlayerMovement PlayerMovement;
+    private PlayerMovement playerMovement;
+    SwitchPlayers switchPlayers;
 
     public Groups myGroup;
 
@@ -59,29 +60,42 @@ public class PlayerBeaviour : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        PlayerMovement playerMovement = other.gameObject.GetComponentInChildren<PlayerMovement>();
+        playerMovement = other.gameObject.GetComponentInChildren<PlayerMovement>();
         Groups groupe = playerMovement.myGroup;
+
+        switchPlayers = other.gameObject.GetComponent<SwitchPlayers>();
+
         if (myGroup == Groups.Groupe1 && isMyGround && groupe == Groups.Groupe2)
         {
-               Debug.Log("I catched you!");
-               PlayerMovement = other.gameObject.GetComponent<PlayerMovement>();
-               PlayerMovement.enabled = false;
-
-            SwitchPlayers switchPlayers = other.gameObject.GetComponent<SwitchPlayers>();
-            switchPlayers.Icaught = true;
+            Debug.Log("I catched you!");
+            playerMovement = other.gameObject.GetComponent<PlayerMovement>();
+            MovmentStop();
         }
        
         else if (myGroup == Groups.Groupe2 && isMyGround && groupe == Groups.Groupe1)
         {
-               Debug.Log("I catched you!");
-               PlayerMovement = other.gameObject.GetComponent<PlayerMovement>();
-            PlayerMovement.enabled = false;
-
-            SwitchPlayers switchPlayers = other.gameObject.GetComponent<SwitchPlayers>();
-            switchPlayers.Icaught = true;
+            Debug.Log("I catched you!");
+            playerMovement = other.gameObject.GetComponent<PlayerMovement>();
+            MovmentStop();
+        }
+        else if(myGroup == Groups.Groupe1&& groupe == Groups.Groupe1&& switchPlayers.Icaught)
+        {
+            MovmentAble();
+        }
+        else if (myGroup == Groups.Groupe2 && groupe == Groups.Groupe2 && switchPlayers.Icaught)
+        {
+            MovmentAble();
         }
 
+    }
+    private void MovmentStop ()
+    {
+        playerMovement.enabled = false;
+        switchPlayers.Icaught = true;
+    }
 
-
+    private void MovmentAble ()
+    {
+        switchPlayers.Icaught = false;
     }
 }
