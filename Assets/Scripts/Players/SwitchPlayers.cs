@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchPlayersGroup2 : MonoBehaviour
+public class SwitchPlayers : MonoBehaviour
 {
+
 
     [SerializeField]
     private PlayerNumber playerNumber;

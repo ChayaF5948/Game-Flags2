@@ -32,15 +32,14 @@ public class Flag : MonoBehaviour
             if (groupes == Groups.Groupe1 && myFlag == Groups.Groupe2)
             {   
                 gameManager.IsConquered = true;
-                ChangeFlag();
                 ChangeArea();
-                
+                ChangeFlag();  
             }
             else if (groupes == Groups.Groupe2 && myFlag == Groups.Groupe1)
             {
                 gameManager.IsConquered = true;
-                ChangeFlag();
                 ChangeArea();
+                ChangeFlag();
             }
         }
        
@@ -49,8 +48,6 @@ public class Flag : MonoBehaviour
 
     private void ChangeFlag()
     {
-        gameObject.SetActive(false);
-        flag.SetActive(true);
         if(myFlag == Groups.Groupe2)
         {
             gameManager.FlagGro1Num++;
@@ -61,6 +58,8 @@ public class Flag : MonoBehaviour
             gameManager.FlagGro1Num--;
             gameManager.FlagGro2Num++;
         }
+        gameObject.SetActive(false);
+        flag.SetActive(true);
     }
 
     private void ChangeArea()

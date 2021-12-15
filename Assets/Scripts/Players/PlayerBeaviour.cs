@@ -67,8 +67,8 @@ public class PlayerBeaviour : MonoBehaviour
                PlayerMovement = other.gameObject.GetComponent<PlayerMovement>();
                PlayerMovement.enabled = false;
 
-            SwitchPlayersGroup2 switchPlayersGroup2 = other.gameObject.GetComponent<SwitchPlayersGroup2>();
-            switchPlayersGroup2.Icaught = true;
+            SwitchPlayers switchPlayers = other.gameObject.GetComponent<SwitchPlayers>();
+            switchPlayers.Icaught = true;
         }
        
         else if (myGroup == Groups.Groupe2 && isMyGround && groupe == Groups.Groupe1)
@@ -77,8 +77,8 @@ public class PlayerBeaviour : MonoBehaviour
                PlayerMovement = other.gameObject.GetComponent<PlayerMovement>();
             PlayerMovement.enabled = false;
 
-            SwitchPlayersGroup2 switchPlayersGroup2 = other.gameObject.GetComponent<SwitchPlayersGroup2>();
-            switchPlayersGroup2.Icaught = true;
+            SwitchPlayers switchPlayers = other.gameObject.GetComponent<SwitchPlayers>();
+            switchPlayers.Icaught = true;
         }
 
 
