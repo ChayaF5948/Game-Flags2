@@ -80,15 +80,17 @@ public class PlayerBeaviour : MonoBehaviour
         }
         else if(myGroup == Groups.Groupe1&& groupe == Groups.Groupe1&& switchPlayers.Icaught)
         {
+            Debug.Log("You are free!!");
             MovmentAble();
         }
         else if (myGroup == Groups.Groupe2 && groupe == Groups.Groupe2 && switchPlayers.Icaught)
         {
+            Debug.Log("You are free!!");
             MovmentAble();
         }
 
     }
-    private void MovmentStop ()
+    private void MovmentStop ()                            
     {
         playerMovement.enabled = false;
         switchPlayers.Icaught = true;
