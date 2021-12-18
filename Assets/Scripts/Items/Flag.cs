@@ -11,13 +11,30 @@ public class Flag : MonoBehaviour
 
     [SerializeField]
     private Material[] area;
+
+    private bool isChangeFlag = false;
+
     
+    public bool IsChangeFlag
+    {
+        get
+        {
+            return isChangeFlag;
+        }
+        set
+        {
+            isChangeFlag = value;
+        }
+    }
+
+
 
     //[SerializeField] private LayerMask areaMask;
     private void Start()
     {
         gameManager = GameManager.FindObjectOfType<GameManager>();
         //areaMask = GetComponentInParent<LayerMask>();
+        isChangeFlag = false;
     }
 
 
@@ -68,11 +85,13 @@ public class Flag : MonoBehaviour
         {
             transform.parent.gameObject.layer = 6;
             transform.parent.GetComponent<Renderer>().material = area[0];
+            isChangeFlag = true;
         }
         else if(myFlag == Groups.Groupe1)
         {
             transform.parent.gameObject.layer = 7;
             transform.parent.GetComponent<Renderer>().material = area[1];
+            isChangeFlag = true;
         }
     }
 }
