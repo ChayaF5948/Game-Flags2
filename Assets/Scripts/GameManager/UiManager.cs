@@ -14,7 +14,7 @@ public class UiManager : MonoBehaviour
 
     private void Start()
     {
-        gameManager = GameManager.FindObjectOfType<GameManager>();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
         gameManager.OnFlagConquered += ChangeTheNumberFlagsText;
     }
 
