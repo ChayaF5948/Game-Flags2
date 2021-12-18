@@ -6,19 +6,20 @@ public class PlayerBeaviour : MonoBehaviour
 {
     [SerializeField] private bool isMyGround;
 
-    private PlayerMovement PlayerMovement;
+    private PlayerMovement playerMovement;
+    private SwitchPlayers switchPlayers;
 
     public Groups myGroup;
 
     private void Start()
     {
-        
+
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(myGroup == Groups.Groupe2)
+        if (myGroup == Groups.Groupe2)
         {
-            
+
 
             if (collision.collider.gameObject.layer == LayerMask.NameToLayer("AreaGroupe2"))
             {
@@ -37,7 +38,7 @@ public class PlayerBeaviour : MonoBehaviour
 
         else if (myGroup == Groups.Groupe1)
         {
-            
+
 
             if (collision.collider.gameObject.layer == LayerMask.NameToLayer("AreaGroupe2"))
             {
@@ -61,43 +62,39 @@ public class PlayerBeaviour : MonoBehaviour
     {
         PlayerMovement playerMovement = other.gameObject.GetComponentInChildren<PlayerMovement>();
         Groups groupe = playerMovement.myGroup;
+
+        switchPlayers = other.gameObject.GetComponent<SwitchPlayers>();
+
         if (myGroup == Groups.Groupe1 && isMyGround && groupe == Groups.Groupe2)
         {
-               Debug.Log("I catched you!");
-               PlayerMovement = other.gameObject.GetComponent<PlayerMovement>();
-               PlayerMovement.enabled = false;
-
-            SwitchPlayers switchPlayers = other.gameObject.GetComponent<SwitchPlayers>();
-            switchPlayers.Icaught = true;
+            MovmentStop();
         }
-       
+
         else if (myGroup == Groups.Groupe2 && isMyGround && groupe == Groups.Groupe1)
         {
-               Debug.Log("I catched you!");
-               PlayerMovement = other.gameObject.GetComponent<PlayerMovement>();
-            PlayerMovement.enabled = false;
-
-            SwitchPlayers switchPlayers = other.gameObject.GetComponent<SwitchPlayers>();
-            switchPlayers.Icaught = true;
+            MovmentStop();
         }
-        else if(myGroup == Groups.Groupe1&& groupe == Groups.Groupe1&& switchPlayers.Icaught)
+        else if (myGroup == Groups.Groupe1 && groupe == Groups.Groupe1 && switchPlayers.Icaught)
         {
             Debug.Log("You are free!!");
             MovmentAble();
         }
         else if (myGroup == Groups.Groupe2 && groupe == Groups.Groupe2 && switchPlayers.Icaught)
         {
-            Debug.Log("You are free!!");
+            
             MovmentAble();
         }
 
     }
-    private void MovmentStop ()                            
+    private void MovmentStop()
     {
+        Debug.Log("I catched you!");
         playerMovement.enabled = false;
         switchPlayers.Icaught = true;
     }
-
-
+    private void MovmentAble()
+    {
+     Debug.Log("You are free!!");
+     switchPlayers.Icaught = true;
     }
 }
