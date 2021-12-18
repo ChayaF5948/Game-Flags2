@@ -62,7 +62,7 @@ public class Flag : MonoBehaviour
 
     private void ChangeFlag()
     {
-        gameManager.IsConquered = true;
+       
         if (myFlag == Groups.Groupe2)
         {
             gameManager.FlagGro1Num++;
@@ -75,6 +75,7 @@ public class Flag : MonoBehaviour
         }
         gameObject.SetActive(false);
         flag.SetActive(true);
+        gameManager.IsConquered = true;
     }
 
     private void ChangeArea()
