@@ -26,18 +26,18 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    
-   
-    //public int FlagGro1Num
-    //{
-    //    get { return flagGro1num;}
-    //    set { flagGro1num = value; }
-    //}
-    //public int FlagGro2Num
-    //{
-    //    get { return flagGro2num; }
-    //    set { flagGro2num = value; }
-    //}
+
+
+    public int FlagGro1Num
+    {
+        get { return flagGro1num; }
+        set { flagGro1num = value; }
+    }
+    public int FlagGro2Num
+    {
+        get { return flagGro2num; }
+        set { flagGro2num = value; }
+    }
 
     // Start is called before the first frame update
     void Start()

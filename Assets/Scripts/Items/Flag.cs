@@ -32,7 +32,7 @@ public class Flag : MonoBehaviour
     //[SerializeField] private LayerMask areaMask;
     private void Start()
     {
-        gameManager = GameManager.FindObjectOfType<GameManager>();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
         //areaMask = GetComponentInParent<LayerMask>();
     }
 
@@ -62,19 +62,19 @@ public class Flag : MonoBehaviour
 
     private void ChangeFlag()
     {
-        //gameManager.IsConquered = true;
-        //if (myFlag == Groups.Groupe2)
-        //{
-        //    gameManager.FlagGro1Num++;
-        //    gameManager.FlagGro2Num--;
-        //}
-        //else if(myFlag == Groups.Groupe1)
-        //{
-        //    gameManager.FlagGro1Num--;
-        //    gameManager.FlagGro2Num++;
-        //}
-        //gameObject.SetActive(false);
-        //flag.SetActive(true);
+        gameManager.IsConquered = true;
+        if (myFlag == Groups.Groupe2)
+        {
+            gameManager.FlagGro1Num++;
+            gameManager.FlagGro2Num--;
+        }
+        else if (myFlag == Groups.Groupe1)
+        {
+            gameManager.FlagGro1Num--;
+            gameManager.FlagGro2Num++;
+        }
+        gameObject.SetActive(false);
+        flag.SetActive(true);
     }
 
     private void ChangeArea()
@@ -83,13 +83,12 @@ public class Flag : MonoBehaviour
         {
             transform.parent.gameObject.layer = 6;
             transform.parent.GetComponent<Renderer>().material = area[0];
-            isChangeFlag = true;
         }
         else if(myFlag == Groups.Groupe1)
         {
             transform.parent.gameObject.layer = 7;
             transform.parent.GetComponent<Renderer>().material = area[1];
-            isChangeFlag = true;
         }
+
     }
 }
