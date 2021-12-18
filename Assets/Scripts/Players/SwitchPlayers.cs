@@ -11,7 +11,7 @@ public class SwitchPlayers : MonoBehaviour
     private PlayerMovement playerMovement;
 
 
-    [SerializeField]
+  
     private bool iCaught = false;
     public bool Icaught
     {
